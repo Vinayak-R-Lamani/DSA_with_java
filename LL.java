@@ -188,6 +188,22 @@ public class LL {
        
     }
 
+    public void getminmax(){
+        Node temp = head;
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        while (temp != null) {
+            if (temp.data < min) {
+                min = temp.data;
+            }
+            if (temp.data > max) {
+                max = temp.data;
+            }
+            temp = temp.next;
+        }
+        System.out.println("min = " + min + " max = " + max);
+    }
+
     public int print_LL(){
         int count  = 0;
         if (head == null) {
@@ -200,6 +216,7 @@ public class LL {
             curNode = curNode.next;
             count += 1;
         }
+        System.out.println();
         return count;
     }
 
@@ -215,6 +232,7 @@ public class LL {
         System.out.println();
         list.insert_EL_after(100, 0);
         list.print_LL();
+        list.getminmax();
 
     }
 }
