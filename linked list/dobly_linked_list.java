@@ -88,7 +88,7 @@ public class dobly_linked_list {
         System.out.println();
         System.out.println();
 
-        dll.delete_tail();
+        dll.delete_head();
 
         System.out.println("Forward Traversal:");
         dll.printForward();
