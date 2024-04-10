@@ -29,6 +29,29 @@ public class dobly_linked_list {
         }
 
     }
+
+    public void delete_head() {
+        if (head == null || head.front == null) {
+            return ;
+        }
+        Node prev = head;
+        head = head.front;
+
+        head.back = null;
+        prev.front = null;
+
+    }
+
+    public void delete_tail(){
+        if (head == null || head.front == null) {
+            return ;
+        }
+        Node prev = tail;
+        tail = tail.back;
+        tail.front = null;
+        prev.back = null;
+    }
+    
     public void printForward() {
         Node current = head;
         while (current != null) {
@@ -54,11 +77,25 @@ public class dobly_linked_list {
         dll.add(2);
         dll.add(3);
         dll.add(4);
+        dll.add(5);
 
         System.out.println("Forward Traversal:");
         dll.printForward();
 
         System.out.println("Backward Traversal:");
         dll.printBackward();
+
+        System.out.println();
+        System.out.println();
+
+        dll.delete_tail();
+
+        System.out.println("Forward Traversal:");
+        dll.printForward();
+
+        System.out.println("Backward Traversal:");
+        dll.printBackward();
+        
+
     }
 }
