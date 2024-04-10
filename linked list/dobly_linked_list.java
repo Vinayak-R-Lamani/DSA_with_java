@@ -52,6 +52,78 @@ public class dobly_linked_list {
         prev.back = null;
     }
     
+    public void add_element(int data,int pos){
+        if (head == null) {
+            head = tail = new Node(data);
+            return;
+        }
+
+        
+        Node current = head;
+        int count = 1;
+        while (current != null && count <  pos-1) {
+            current = current.front;
+            count++;
+        }
+        if (current == null) {
+            return;
+        }
+
+        Node newNode = new Node(data);
+
+        if(pos ==  1){
+            head.back = newNode;
+            newNode.front = head;
+            head = newNode;
+            return;
+            
+        }
+
+
+        if (current == null || current.front == null) {
+            tail.front = newNode;
+            newNode.back = tail;
+            tail = newNode;
+            return;
+        }
+       
+        newNode.front = current.front;
+        current.front.back = newNode;
+        newNode.back = current;
+        current.front = newNode;
+        
+    }
+
+    public void delete_element(int pos){
+        Node current = head;
+        int count  = 1;
+        if (head == null) {
+            return;
+        }
+
+        if (pos == 1) {
+            head = head.front;
+            head.back = null;
+            return;
+        }
+
+        while (current != null && count < pos -1) {
+            current = current.front;
+            count ++;
+        }
+
+        if (current == null || current.front == null) {
+            tail = tail.back;
+            tail.front = null;
+            return;
+        }
+
+        current.front = current.front.front;
+        current.front.back = current;
+
+
+
+    }
     public void printForward() {
         Node current = head;
         while (current != null) {
@@ -88,13 +160,24 @@ public class dobly_linked_list {
         System.out.println();
         System.out.println();
 
-        dll.delete_head();
+        dll.add_element(6, 1);
+        
 
         System.out.println("Forward Traversal:");
         dll.printForward();
 
         System.out.println("Backward Traversal:");
         dll.printBackward();
+
+        System.out.println("\n\n\n");
+
+        dll.delete_element(3);
+        System.out.println("Forward Traversal:");
+        dll.printForward();
+        System.out.println("\n\n\n");
+        System.out.println("Backward Traversal:");
+        dll.printBackward();
+        
         
 
     }
