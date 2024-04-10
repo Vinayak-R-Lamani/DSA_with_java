@@ -1,4 +1,4 @@
-package problem;
+package problems;
 import java.util.*;
 class Pair{
     public int Min;
