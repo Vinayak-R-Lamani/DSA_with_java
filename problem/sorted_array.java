@@ -1,3 +1,4 @@
+package problem;
 public class sorted_array {
     public static int search(int[] nums,int target){
         int left = 0;
