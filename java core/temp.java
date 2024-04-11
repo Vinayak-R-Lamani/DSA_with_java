@@ -1,4 +1,4 @@
-
+import java.util.*;
 /*class human{
 
     human(){
@@ -41,6 +41,8 @@
 /**
  * a
  */
+
+/* 
  class a
   {
 
@@ -69,9 +71,10 @@ class b extends a
         System.out.println("i am in b in class with one variable");
     }
 }
+*/
 public class temp {
     public static void main(String[] args) {
       
-        b obj = new b(7);
+       
     }
 }
