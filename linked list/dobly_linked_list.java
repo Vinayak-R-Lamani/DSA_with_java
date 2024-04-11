@@ -101,18 +101,18 @@ public class dobly_linked_list {
             return;
         }
 
-        if (pos == 1) {
+        if (pos == head.data) {
             head = head.front;
             head.back = null;
             return;
         }
 
-        while (current != null && count < pos -1) {
+        while (current != null&& pos == current.data ) { //if index given then use count < pos - 1;
             current = current.front;
             count ++;
         }
 
-        if (current == null || current.front == null) {
+        if (tail.data == pos) {
             tail = tail.back;
             tail.front = null;
             return;
@@ -123,6 +123,23 @@ public class dobly_linked_list {
 
 
 
+    }
+
+    public void reverse_list(){
+       if(head == null || head.front == null) return;
+
+      Node tempNode = head;
+      head = tail;
+      tail = tempNode;
+
+      Node current = head;
+
+      while (current != null) {
+        Node temp = current.front;
+        current.front = current.back;
+        current.back = temp;
+        current = current.front;
+      }
     }
     public void printForward() {
         Node current = head;
@@ -150,6 +167,7 @@ public class dobly_linked_list {
         dll.add(3);
         dll.add(4);
         dll.add(5);
+        dll.add(6);
 
         System.out.println("Forward Traversal:");
         dll.printForward();
@@ -160,25 +178,13 @@ public class dobly_linked_list {
         System.out.println();
         System.out.println();
 
-        dll.add_element(6, 1);
-        
+        dll.reverse_list();
 
         System.out.println("Forward Traversal:");
         dll.printForward();
 
         System.out.println("Backward Traversal:");
         dll.printBackward();
-
-        System.out.println("\n\n\n");
-
-        dll.delete_element(3);
-        System.out.println("Forward Traversal:");
-        dll.printForward();
-        System.out.println("\n\n\n");
-        System.out.println("Backward Traversal:");
-        dll.printBackward();
-        
-        
 
     }
 }
