@@ -41,7 +41,7 @@ public class quick_sort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {10, 7, 8, 9, 1, 5 };
+        int[] arr = {97, 41, 20, 36, 23, 48, 86, 39, 30, 17, 98, 78, 1, 58, 28, 6, 72, 99, 5, 89 };
         quick_sort q = new quick_sort();
         q.quick(arr, 0, arr.length - 1);
         for (int i = 0; i < arr.length; i++) {
